@@ -147,6 +147,14 @@ git pull
 ## <a name='logs'>更新日志</a>
 
 
+### v1.0.7
++ jQuery库的优化
++ 完全启用 HTTPS
++ 关闭分享按钮
++ 显示banner和标题透明
++ 自动切换 banner 图片
++ Valine 评论系统
+
 ### v1.0.6
 + 修复归档页面没有分页的BUG, refs #36, fix #78, #79, #85, #103, #106
 

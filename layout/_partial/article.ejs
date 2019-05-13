@@ -15,7 +15,11 @@
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>
           <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+            <% if (theme.link_more) { %>
+              <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+            <% } else { %>
+              <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link %></a>
+            <% } %>
           </p>
         <% } %>
       <% } else { %>
@@ -23,16 +27,9 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <% if (config.baidushare || theme.baidushare){ %>
-        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link" data-share="baidu" data-title="<%= post.title %>"><%= __('share') %></a>
-      <% } else { %>
-        <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('share') %></a>
-      <% } %>
 
-      <% if (post.comments && (config.duoshuo_shortname || theme.duoshuo_shortname)){ %>
-        <a href="<%- post.permalink %>#ds-thread" class="article-comment-link"><%= __('comments') %></a>
-      <% } else if (post.comments && (config.disqus_shortname || theme.disqus_shortname)){ %>
-        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link"><%= __('comments') %></a>
+      <% if (post.comments && (config.valine_shortname || theme.valine_shortname)){ %>
+        <a href="<%- post.permalink %>#valine_thread" class="article-comment-link"><%= __('comments') %></a>
       <% } %>
 
       <%- partial('post/tag') %>
@@ -43,14 +40,10 @@
   <% } %>
 </article>
 
-<% if (!index && post.comments && (config.duoshuo_shortname || theme.duoshuo_shortname)){ %>
+<% if (!index && post.comments && (config.valine_shortname || theme.valine_shortname)){ %>
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>"></div>
-  </section>
-<% } else if (!index && post.comments && (config.disqus_shortname || theme.disqus_shortname)){ %>
-  <section id="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div id="valine_thread">
+      <div class="comment"></div>
     </div>
   </section>
 <% } %>

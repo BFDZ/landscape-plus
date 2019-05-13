@@ -4,10 +4,19 @@
   <% } %>
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
+      <a href="https://creativecommons.org/licenses/by-nc/3.0/cn/" target="_blank"><img src="/images/88x31.png" alt="知识共享许可协议"></a>
+    <br>
+    除非另有说明，本站文章采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/cn/">知识共享署名-非商业性使用 3.0 中国大陆许可协议</a>授权
+      <br>
       Powered by <a href="//hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+      .
+      Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> & <a href="https://pages.github.com/" style="font-weight: bold">GitHub Pages</a>
+      .
+      <br>
+      &copy; 2016-<%= date(new Date(), 'YYYY') %> BFDZ
+      
     </div>
   </div>
 </footer>

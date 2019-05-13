@@ -1,11 +1,13 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
+  首页: /
+  存档: /archives
+  关于: /about
+
 rss: /atom.xml
 
 # Content
-excerpt_link: Read More
+excerpt_link: 阅读全文
 fancybox: false
 mathjax: false
 
@@ -13,28 +15,58 @@ mathjax: false
 sidebar: right
 widgets:
 - category
-- tag
+#- tag
 - tagcloud
 - archive
 - recent_posts
 - links
+- mirror
+- tools
+#- recent_comments
+
+#banner
+switch_banner: true
+banner_count: 4
 
 # Links
 links:
-  主题作者: http://arvinxiang.com
-  热前端: http://reqianduan.com
-  远程.work: http://yuancheng.work
+  不点儿: https://tristana.cn/
+  岁月小筑: https://www.xjh.me/
+  Xcat Liu's Blog: https://blog.xcatliu.com/
+  River's Blog: https://blog.riverrun.xyz/
+  创意狮导航: http://chuangzaoshi.com/
+  Awkxy运维日志: http://www.awkxy.com/
+  梓喵出没: https://www.azimiao.com/
+  小小: http://blog.goagent.net/
+  WeiCN: https://weicn.org/
+  我辈博客: https://wobeibk.com
+  so2x: https://so2x.com/
+  刘伟的博客: https://darrenliuwei.com/
+  AFFVPS: https://affvps.net
+  Let me Attente: https://www.do1999.com/
+  未末小城: http://blog.weimo.info/
+
+mirror:
+  www.bfdz.ink: https://www.bfdz.ink/
+  bfdz.coding.me: https://bfdz.coding.me/
+  bfdz.github.io: https://bfdz.github.io/
+
+tools:
+  网盘: https://cargo.hyperay.cc/
+  密码生成: https://www.bfdz.ink/tools/password.html
+  PT Gen: https://www.bfdz.ink/tools/ptgen.html
+  BT Search: https://www.bfdz.ink/tools/btsearch.html
 
 # Miscellaneous
-google_analytics:
-favicon: /favicon.png
+google_analytics: 
+favicon: /favicon.ico
 twitter:
 google_plus:
 fb_admins: 
 fb_app_id:
 
-# Duoshuo
-duoshuo_shortname: reqianduan
+#valine
+valine_shortname: 1
 
 # Baidu share
-baidushare: true
+baidushare: false

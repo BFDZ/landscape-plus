@@ -1,65 +1,43 @@
 <!-- totop start -->
 <%- partial('totop') %>
 <!-- totop end -->
-<% if (config.duoshuo_shortname || theme.duoshuo_shortname){ %>
-<!-- 多说公共js代码 start -->
+
+<% if (config.valine_shortname || theme.valine_shortname){ %>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="/js/Valine.min.js"></script>
+    <script>
+        new Valine({
+            av: AV, 
+            el: '.comment',
+            smiles_url: 'https://www.bfdz.ink/smiles',
+            verify: false,
+            app_id: 'jpuLXrdKdE1ghmREGuALwKCw-gzGzoHsz',
+            app_key: 'jcsUjAW740MvTyO5DX2mF0Ho',
+            placeholder: '',
+            avatar: 'identicon'
+        });
+    </script>
+<% } %>
+
+<!-- JQ Start-->
+<script src="https://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript">
-var duoshuoQuery = {short_name:"<%= config.duoshuo_shortname || theme.duoshuo_shortname %>"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共js代码 end -->
-<% } else if (config.disqus_shortname || theme.disqus_shortname){ %>
-<script>
-  var disqus_shortname = '<%= config.disqus_shortname || theme.disqus_shortname %>';
-  <% if (page.permalink){ %>
-  var disqus_url = '<%= page.permalink %>';
-  <% } %>
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
+//<![CDATA[
+if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='/js/jquery-2.1.4.min.js' type='text/javascript'%3E%3C/script%3E"));}
+// ]]>
 </script>
-<% } %>
+<!-- JQ end -->
 
-<!-- 百度分享 start -->
-<% if (config.baidushare || theme.baidushare){ %>
-<div id="article-share-box" class="article-share-box">
-  <div id="bdshare" class="bdsharebuttonbox article-share-links">
-    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
-    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
-    <a class="article-share-more" data-cmd="more" title="更多"></a>
-  </div>
-</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64016301-4"></script>
 <script>
-  function SetShareData(cmd, config) {
-    if (shareDataTitle && shareDataUrl) {
-      config.bdText = shareDataTitle;
-      config.bdUrl = shareDataUrl;
-    }
-    return config;
-  }
-  window._bd_share_config={
-    "common":{onBeforeClick: SetShareData},
-    "share":{"bdCustomStyle":"<%- url_for("/css/bdshare.css") %>"}
-  };
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<% } %>
-<!-- 百度分享 end -->
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  gtag('config', 'UA-64016301-4');
+</script>
 
 <% if ((config.fancybox || theme.fancybox)){ %>
   <%- css('fancybox/jquery.fancybox') %>
